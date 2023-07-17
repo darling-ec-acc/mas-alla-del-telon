@@ -1,5 +1,6 @@
 import "./App.css";
 import BackImg from "./assets/background.jpg";
+import loguito from "./assets/loguito.png";
 import logo from "./assets/logo.png";
 import { FaYoutube, FaTiktok, FaSpotify, FaInstagram } from "react-icons/fa";
 
@@ -20,7 +21,7 @@ function App() {
     },
     {
       name: "Instagram",
-      link: "https://www.instagram.com/_masalladeltelon_/",
+      link: "https://instagram.com/mas_alladel_telon?igshid=YmM0MjE2YWMzOA==",
     },
     {
       name: "TikTok",
@@ -28,67 +29,76 @@ function App() {
     },
   ];
   return (
-    <>
-      <div
-        style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${BackImg}), no-repeat center center fixed  `,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-        className="h-screen w-full"
-      >
+    <div
+      className="w-full h-screen"
+      style={{
+        backgroundImage: `url(${BackImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        color: "white !important",
+      }}
+    >
+      <div className="w-full flex center justify-center">
         <div
-          className="h-full w-full bg-cover flex flex-col gap-5 justify-center items-center z-10"
-          // style={{
-          //   background: `url(${logo}) repeat center center fixed`,
-          //   backgroundSize: "cover",
-          // }}
+          className="navbar"
+          style={{
+            maxWidth: "80rem",
+          }}
         >
-          <div className="bg-white/70 p-10 rounded-2xl text-center text-[#0d0d0d]">
-            <p className="text-xs">¡Bienvenidos a nuestro podcast!</p>
-            <h1 className="text-4xl font-bold">"Mas Allá del Telón"</h1>
-            <p className="text-sm">
-              Relacionado con las Artes Escénicas de la facultad de Artes de la
-              Universidad Central del Ecuador
+          <div className="flex-1">
+            <p className="btn btn-ghost normal-case text-xl max-[414px]:hidden">
+              Mas Allá Del Telón
             </p>
-            <br />
-            <p className="text-sm">SIGUENOS EN NUESTRAS REDES SOCIALES</p>
-
-            <div className="flex justify-evenly items-center pt-5">
-              {links.map((link) => (
-                <a
-                href={link.link}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex items-center justify-center gap-2 text-2xl hover:scale-110 transition-all"
-                >
-                  {link.name === "YouTube" && <FaYoutube />}
-                  {link.name === "Spotify" && <FaSpotify />}
-                  {link.name === "Instagram" && <FaInstagram />}
-                  {link.name === "TikTok" && <FaTiktok />}
-                </a>
-              ))}
+          </div>
+          <div className="flex-none">
+            <div className="dropdown dropdown-end">
+              <div className="flex gap-2 center justify-center">
+                {links.map((link) => (
+                  <label tabIndex={0} className="btn btn-ghost btn-circle">
+                    <a
+                      href={link.link}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="flex items-center justify-center gap-2 text-3xl hover:scale-110 transition-all"
+                    >
+                      {link.name === "YouTube" && <FaYoutube />}
+                      {link.name === "Spotify" && <FaSpotify />}
+                      {link.name === "Instagram" && <FaInstagram />}
+                      {link.name === "TikTok" && <FaTiktok />}
+                    </a>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="bg-white/70 p-5 rounded-2xl text-center text-[#0d0d0d] font-semibold">
-            <p className="text-xs text-[#0d0d0d]">
-              Puesdes contactarnos en el siguiente correo:
+        </div>
+      </div>
+      <div className="hero min-h-screen w-full">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <img src={loguito} className="max-w-sm" />
+          <div className="w-full" style={{
+            background: "rgba(0,0,0,0.4)",
+            padding: "1rem",
+            borderRadius: "1rem"
+          }}>
+            <h1 className="text-5xl font-bold">Mas Allá del telón</h1>
+            <p className="py-6 text-2xl">
+              Es un podcast de la Facultad de Artes relacionado con las Artes
+              escénicas que promueve los procesos artísticos y creativos de la
+              carrera.{" "}
               <a
-                href="mailto:masalladeltelon286@gmail.com"
-                className="text-purple-700"
+                href="https://www.uce.edu.ec"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="hover:text-gray-200 hover:scale-110 transition-all font-medium"
               >
-                masalladeltelon286@gmail.com
+                (Universidad Central del Ecuador)
               </a>
             </p>
           </div>
-              <img
-                src={logo}
-                className="w-[230px] h-[230px]"
-                alt="logo"
-              />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
