@@ -1,7 +1,6 @@
 import "./App.css";
 import BackImg from "./assets/background.jpg";
 import loguito from "./assets/loguito.png";
-import logo from "./assets/logo.png";
 import { FaYoutube, FaTiktok, FaSpotify, FaInstagram } from "react-icons/fa";
 
 interface Link {
